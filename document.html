@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSM Notes</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="stylesheet.css" />
+</head>
+<body>
+	<header>
+		<nav id="navigation" class="topnav">
+			<a class="active" href="#" onclick="viewModel.changeClass(this)">Home</a>
+			<a href="#about" onclick="return alert('About, not implemented yet!')">About</a>
+			<a href="#contact" onclick="return alert('Contact, not implemented yet!')">Contact</a>
+			<a href="#notes" onclick="viewModel.changeClass(this)">Notes</a>
+			<a href="#Sign up" onclick="return alert('Sign Up, not implemented yet!')">Sign Up</a>
+			<div class="input-container">
+				<form action="javascript:alert('Sign In, not implemented yet!');">
+					<input type="email" placeholder="Email" name="email">
+					<input type="password" placeholder="Password" name="password">
+					<button class="active" type="submit">Sign In</button>
+				</form>
+			</div>
+		</nav>
+	</header>
+	<hr>
+	<main>
+		<div class="center">
+			<h1>Daily Scrum Meeting Notes</h1>
+		</div>
+		
+		<hr>
+
+		<div class="center">
+			<h3>Web Storage mechanisms</h3>
+			<form id="storage-mechanism">
+				<input type="radio" id="localStorage" name="storage-mechanism" value="0" checked onclick="viewModel.storageMechanism()" />
+				<label for="localStorage">
+					<code>localStorage</code>
+				</label>
+				<br />
+				<input type="radio" id="sessionStorage" name="storage-mechanism" value="1" onclick="viewModel.storageMechanism()" />
+				<label for="sessionStorage">
+					<code>sessionStorage</code>
+				</label>
+			</form>			
+		</div>
+
+		<hr>
+
+		<div id="notes" class="center">
+			<h2>Scrum Meeting Notes</h2>
+			<h4>Use this form to enter your daily scrum meeting notes...</h4>
+			<form id="new-note-form" name="new-note-form" autocomplete="off" onsubmit="viewModel.save()">
+				<fieldset id="new-note-fs">
+					<legend>Enter a Meeting Note</legend>
+					<div class="input-container">
+						<div>
+							<input type="hidden" id="key" name="key" value="">
+						</div>
+						<div>
+							<input type="text" id="name" name="name" placeholder="Name" size="110" maxlength="50" title="User submitting the note" required>
+						</div>
+						<br />
+						<div>
+							<input type="text" id="projectortask" name="projectortask" placeholder="Project or Task" size="110" maxlength="50" title="Project or Task related to" required>
+						</div>
+							<br />
+						<div>
+							<input type="text" id="workyesterday" name="workyesterday" placeholder="What did you work on yesterday?" size="110" maxlength="100" title="Worked yesterday" required>
+						</div>
+						<br />
+						<div>
+							<input type="text" id="worktoday" name="worktoday" placeholder="What will you work on today?" size="110" maxlength="100" title="Work plan for today" required>
+						</div>
+						<br />
+						<div>
+							<input type="text" id="impediment" name="impediment" placeholder="Any impediment(s)?" size="110" maxlength="100" title="Any impediment preventing user from working" required>
+						</div>
+						<br />
+						<div>
+							<input type="text" id="created" name="created" placeholder="Creation date" size="20" maxlength="20" title="Date when note was created" disabled required>
+							<input type="text" id="modified" name="modified" placeholder="Modification date" size="20" maxlength="20" title="Date when note has been modified" disabled required>
+						</div>
+					</div>
+				</fieldset>
+				<br />
+				<input id="createbtn" type="submit" value="Create">
+				<button id="readallbtn" type="button" onclick="viewModel.readAll();">Read All</button>
+				<button id="readbykeybtn" type="button" onclick="viewModel.readByKey();">Read By Key</button>
+				<button id="updatebtn" type="button" onclick="viewModel.updateByKey();" disabled>Update</button>
+				<button id="deletebykeybtn" type="button" onclick="viewModel.deleteByKey();" disabled>Delete</button>
+				<button id="deleteallbtn" type="button" onclick="viewModel.deleteAll();">Delete All</button>
+				<button id="resetbtn" type="button" onclick="viewModel.reset();">Reset</button>
+			</form>
+		</div>
+		<hr>
+		<div id="result"></div>
+	</main>
+	<hr>
+	<footer>
+		<p>
+			<script> 
+				document.write(new Date().getFullYear());
+			</script>
+			DSM - Daily Scrum Meetings
+			by <a href="https://github.com/castorker">castorker</a>.<br> 
+		</p>
+	</footer>
+	
+	<script src="webStorageDataService.js"></script>
+	<script src="viewModel.js"></script>
+	<script src="helperTools.js"></script>
+
+</body>
+</html>

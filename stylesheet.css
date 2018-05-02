@@ -1,0 +1,116 @@
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #e9e9e9;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #2196F3;
+    color: white;
+}
+ 
+.topnav .input-container {
+    float: right;
+}
+ 
+.topnav input[type=email] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+
+.topnav input[type=password] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+
+.topnav .input-container button {
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.topnav .input-container button:hover {
+    background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+    .topnav .input-container {
+      float: none;
+    }
+    .topnav a, .topnav input[type=email], .topnav .input-container button {
+      float: none;
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 14px;
+    }
+    .topnav input[type=email] {
+      border: 1px solid #ccc;
+    }
+}
+
+.center {
+    margin: auto;
+    width: 57%;
+    border: 3px solid lightgrey;
+    background-color: lightgrey;
+    padding: 10px;
+}
+
+.center input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+
+#notes {
+    display: none;
+    visibility: hidden;
+}
+
+#notes:target {
+    display: block;
+    visibility: visible;
+}
+
+.success { color: #4CAF50; } /* Green */
+.info { color: #2196F3; } /* Blue */
+.warning { color: #ff9800; } /* Orange */
+.danger { color: #f44336; } /* Red */
+.default {color: #e7e7e7; color: black;} /* Gray */
+.default:hover {background: #ddd;}
